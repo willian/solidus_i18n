@@ -10,9 +10,15 @@ if branch == 'master' || branch >= "v2.0"
   gem "rails-controller-testing", group: :test
 end
 
+if ['v1.1', 'v1.2'].include? branch
+  gem 'rails', '4.2.4'
+  gem 'mysql2', '~> 0.3.18'
+else
+  gem 'mysql2'
+end
+
 gem 'pg'
 gem 'sqlite3'
-gem 'mysql2'
 
 group :development, :test do
   gem "pry-rails"
